@@ -1,0 +1,54 @@
+name: Release Build & Upload
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.22'
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential libgmp3-dev zip
+
+      - name: Build binaries
+        run: |
+          make clean
+          GOOS=linux GOARCH=amd64 make sprd
+          mv build/bin/sprd build/bin/sprd-linux-amd64
+          GOOS=windows GOARCH=amd64 make sprd
+          mv build/bin/sprd.exe build/bin/sprd-windows-amd64.exe
+          GOOS=darwin GOARCH=amd64 make sprd
+          mv build/bin/sprd build/bin/sprd-darwin-amd64
+
+      - name: Create release artifacts
+        run: |
+          mkdir -p dist
+          cp -r build/bin dist/
+          cd dist
+          zip sprd-${{ github.ref_name }}-linux-amd64.zip bin/sprd-linux-amd64
+          zip sprd-${{ github.ref_name }}-windows-amd64.zip bin/sprd-windows-amd64.exe
+          zip sprd-${{ github.ref_name }}-darwin-amd64.zip bin/sprd-darwin-amd64
+          tar -czvf sprd-${{ github.ref_name }}-linux-amd64.tar.gz bin/sprd-linux-amd64
+          tar -czvf sprd-${{ github.ref_name }}-windows-amd64.tar.gz bin/sprd-windows-amd64.exe
+          tar -czvf sprd-${{ github.ref_name }}-darwin-amd64.tar.gz bin/sprd-darwin-amd64
+
+      - name: Upload release to GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/sprd-${{ github.ref_name }}-linux-amd64.*
+            dist/sprd-${{ github.ref_name }}-windows-amd64.*
+            dist/sprd-${{ github.ref_name }}-darwin-amd64.*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
