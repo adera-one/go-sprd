@@ -1,21 +1,21 @@
-## SparrowGrid Smart Chain
-SparrowGrid is committed to product development and service improvement, and contributes its share to the infrastructure of the blockchain world. `SGSC` is a small part of the development prospect.
+## Adera One Smart Chain
+Adera One is committed to product development and service improvement, and contributes its share to the infrastructure of the blockchain world. `AOS` is a small part of the development prospect.
 
-SparrowGrid Smart Chain (SGSC) is a smart contract chain that supports up to 101 validators. Aside from shorter time for block generation and lower fees for transactions, `SGSC` is also fully compatible with Ethereum virtual machine(EVM) and protocols while supporting high-performance transactions. And to achieve that, the easiest solution is to develop based on go-ethereum fork, as we respect the great work of Ethereum very much.
+Adera One Smart Chain (AOS) is a smart contract chain that supports up to 101 validators. Aside from shorter time for block generation and lower fees for transactions, `AOS` is also fully compatible with Ethereum virtual machine(EVM) and protocols while supporting high-performance transactions. And to achieve that, the easiest solution is to develop based on go-ethereum fork, as we respect the great work of Ethereum very much.
 
-## SGSC Features
+## AOS Features
 
-* Decentralization: Permission-free, anyone can become a validator by staking `SPR`.
-* EVM compatibility: Fully compatible with Ethereum virtual machine(EVM), which means that almost all DApps, ecosystem components and tools on Ethereum can be migrated to `SGSC` directly or with very small changes.
+* Decentralization: Permission-free, anyone can become a validator by staking `ADR`.
+* EVM compatibility: Fully compatible with Ethereum virtual machine(EVM), which means that almost all DApps, ecosystem components and tools on Ethereum can be migrated to `AOS` directly or with very small changes.
 * High performance: 600+ TPS, 3s block time
 
 ## Native Token
 
-`CET` on `SGSC` runs the same way as `ETH`runs on Ethereum, and its main functions are:
+`ADR` on `AOS` runs the same way as `ETH` runs on Ethereum, and its main functions are:
 
 * As block reward for validators
-* To pay for the gas for transfers and contract calls on `SGSC` 
-* To pay for the transaction fees for deploying smart contracts on `SGSC`
+* To pay for the gas for transfers and contract calls on `AOS` 
+* To pay for the transaction fees for deploying smart contracts on `AOS`
 * To be delegated to the selected validators
 
 ## Building the source
@@ -45,7 +45,7 @@ on how you can run your own `sprd` instance.
 
 ### Full node on the testnet
 
-By far the most common scenario is people wanting to simply interact with the `SGSC`
+By far the most common scenario is people wanting to simply interact with the `AOS`
 network: create accounts; transfer funds; deploy and interact with contracts. For this
 particular use-case the user doesn't care about years-old historical data, so we can
 fast-sync quickly to the current state of the network. To do so:
@@ -77,7 +77,7 @@ $ sprd --config /path/to/your_config.toml
 ### Programmatically interfacing `sprd` nodes
 
 As a developer, sooner rather than later you'll want to start interacting with `sprd` and the
-`SGSC` network via your own programs and not manually through the console. To aid
+`AOS` network via your own programs and not manually through the console. To aid
 this, `sprd` has built-in support for a JSON-RPC based APIs ([standard APIs](https://github.com/ethereum/wiki/wiki/JSON-RPC)
 and [specific APIs](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)).
 These can be exposed via HTTP, WebSockets and IPC (UNIX sockets on UNIX based
@@ -111,7 +111,7 @@ can reuse the same connection for multiple requests!
 
 **Note: Please understand the security implications of opening up an HTTP/WS based
 transport before doing so! Hackers on the internet are actively trying to subvert
-`SGSC` nodes with exposed APIs! Further, all browser tabs can access locally
+`AOS` nodes with exposed APIs! Further, all browser tabs can access locally
 running web servers, so malicious web pages could try to subvert locally available
 APIs!**
 
@@ -120,7 +120,7 @@ APIs!**
 Thank you for considering to help out with the source code! We welcome contributions
 from anyone on the internet, and are grateful for even the smallest of fixes!
 
-If you'd like to contribute to `SGSC`, please fork, fix, commit and send a pull request
+If you'd like to contribute to `AOS`, please fork, fix, commit and send a pull request
 for the maintainers to review and merge into the main code base. If you wish to submit
 more complex changes though, please contact to [`the core developer`](https://discord.gg/5uBGRW9qSp)
 to ensure those changes are in line with the general philosophy of the project and/or get
@@ -143,10 +143,10 @@ testing procedures.
 
 ## License
 
-The SGSC library (i.e. all code outside of the `cmd` directory) is licensed under the
+The AOS library (i.e. all code outside of the `cmd` directory) is licensed under the
 [GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0.en.html),
 also included in our repository in the `COPYING.LESSER` file.
 
-The SGSC binaries (i.e. all code inside of the `cmd` directory) is licensed under the
+The AOS binaries (i.e. all code inside of the `cmd` directory) is licensed under the
 [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html), also
 included in our repository in the `COPYING` file.

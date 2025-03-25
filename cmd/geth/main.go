@@ -54,7 +54,7 @@ var (
 	gitCommit = ""
 	gitDate   = ""
 	// The app that holds all commands and flags.
-	app = flags.NewApp(gitCommit, gitDate, "The SGSC Command Line Interface")
+	app = flags.NewApp(gitCommit, gitDate, "The Adera One Command Line Interface")
 	// flags that configure the node
 	nodeFlags = []cli.Flag{
 		utils.IdentityFlag,
@@ -229,7 +229,7 @@ func init() {
 	// Initialize the CLI app and start Geth
 	app.Action = geth
 	app.HideVersion = true // we have a command to print the version
-	app.Copyright = "Copyright 2024-2025 The SGSC Authors and CSC Authors"
+	app.Copyright = "Copyright 2024-2025 Adera One Authors"
 	app.Commands = []cli.Command{
 		// See chaincmd.go:
 		initCommand,

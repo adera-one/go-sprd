@@ -27,6 +27,7 @@ build/_vendor/pkg
 /build/cache/
 /build/bin/
 /geth*.zip
+db
 
 # travis
 profile.tmp
